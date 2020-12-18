@@ -6,19 +6,16 @@ const Test = () => {
     axios({
       method: "get",
       url:
-        "https://crudcrud.com/api/9ab57387487f4caa98989aff6d9b379d/test172317",
+        "https://uxcandy.com/~shapoval/test-task-backend/v2/?developer=TestName174417",
     }).then((res) => console.log(res, "get"));
   };
 
   const postFunc = () => {
     const config = {
-      headers: {
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
-      },
+      withCredentials: true,
       data: {
-        name: "t122",
-        age: 19,
+        name: "new test Name 55",
+        age: 45,
       },
     };
 
@@ -27,15 +24,12 @@ const Test = () => {
         "https://crudcrud.com/api/9ab57387487f4caa98989aff6d9b379d/test172317",
         config
       )
-      .then((response) => console.log("post"));
+      .then((response) => console.log(response, "post"));
   };
 
   const putFunc = () => {
     const config = {
-      headers: {
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
-      },
+      withCredentials: true,
       data: {
         name: "change 1700000000",
         age: 19,
