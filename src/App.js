@@ -4,15 +4,21 @@ import { reducer } from "./Reducer";
 import { Provider } from "react-redux";
 import Connected from "./Connected";
 import { logger } from "redux-logger";
-import thunk from "redux-thunk";
+import createSagaMiddleware from "redux-saga";
+import { watchLoadData } from "./sagas";
+import Test from "./Test";
 
 const App = () => {
-  const store = createStore(reducer, applyMiddleware(logger, thunk));
+  const sagaMiddleware = createSagaMiddleware();
+  const store = createStore(reducer, applyMiddleware(logger, sagaMiddleware));
+
+  sagaMiddleware.run(watchLoadData);
 
   return (
     <>
       <Provider store={store}>
-        <Connected />
+        {/*<Connected />*/}
+        <Test />
       </Provider>
     </>
   );
