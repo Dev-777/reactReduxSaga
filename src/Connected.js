@@ -1,8 +1,9 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { loadData, putData } from "./actions";
+import { loadData } from "./actions";
+import StateHOC from "./HOC/StateHOC";
 
-const Connected = () => {
+const Connected = ({ state }) => {
   const dispatch = useDispatch();
   const onClick = () => {
     dispatch(loadData());
@@ -10,9 +11,10 @@ const Connected = () => {
 
   return (
     <>
+      <button onClick={() => console.log(state.data)}>Show state</button>
       <button onClick={onClick}>Click me</button>
     </>
   );
 };
 
-export default Connected;
+export default StateHOC(Connected);

@@ -17,8 +17,8 @@ const App = () => {
   return (
     <>
       <Provider store={store}>
-        {/*<Connected />*/}
-        <Test />
+        <Connected />
+        {/*<Test />*/}
       </Provider>
     </>
   );
